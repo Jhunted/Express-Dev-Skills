@@ -1,30 +1,38 @@
-const skills = 
-[
-{
-    id: 1,
-    skill: "JavaScript",
-    level: 4.5
-},
+var skills = [
+    {skill: 'HTML', level: true},
+    {skill: 'CSS', level: true},
+    {skill: 'JS', level: true},
+    {skill: 'Node.JS', level: false},
+    {skill: 'Express', level: false},
 
-{
-    id: 2,
-    skill: "Python",
-    level: 4
-},
+]
 
-{
-    id: 3,
-    skill: "PostgreSQL",
-    level: 5
-}
-];
-
-module.exports = 
-{
-    find
+module.exports = {
+    getAll,
+    getOne,
+    create,
+    deleteOne,
+    update,
 };
 
-function find() 
-{
+
+
+function update(id, skill) {
+    skills[id] = skill;
+}
+
+function deleteOne(id) {
+    skills.splice(id, 1);
+}
+
+function create(skill) {
+    skills.push(skill);
+}
+
+function getOne(id) {
+    return skills[id];
+}
+
+function getAll() {
     return skills;
 }
